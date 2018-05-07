@@ -1,0 +1,37 @@
+
+------------------------------------
+ NOTES ON IMPLEMENTATION
+------------------------------------
+
+ - Assumed that all specimens are types of some kind so if they are not linked to a type name I use UnitTypeStatus to flag them as 'Type'. Not actually found any of these.
+
+ - After discussion with DavidH I have implemented the following 'Identifications' for each specimen. 
+ 1) the current name of the specimen
+ 2) the filing name of the specimen
+ 3) the name that this specimen is a type of.
+ 
+ I am ignoring the Verifications table as it seems to contain unrelated info to these core determinations.
+ 
+ This means we can't include the person who did the identification or when they did it but this is mandatory so I have set 'Identifier' to 'RBGE' and 'IdentificationDate' to todays date.
+ 
+ - We only go to one level of infra specific name as that is all the Aluka file (and code) takes but theoretically we could have vars for subspecies etc in BGBASE. The sub-sub species name part will be ignored in the identification element for the specimen - there is nowhere to put the info anyway and I bet we don't have any names like that...
+ 
+- The RelatedUnitID element has not been populated. I need a little more info on what we would want to pull out of BGBASE.
+ 
+- UnitTypeStatus is omitted as only used by Kew
+
+- File name: I don't know the batch number so put XXX in the download file name.
+
+ 
+- Interpretation of type kind abbreviations from BGBASE is as follows
+when 'H' then 'Holotype'
+when 'I' then 'Isotype'
+when 'T' then 'Type'
+when 'S' then 'Syntype'
+when 'IS' then 'Isosyntype'
+when 'IL' then 'Isolectotype'
+when 'P' then 'Paratype'
+when 'L' then 'Lectotype'
+when 'N' then 'Neotype'
+
+

@@ -1,0 +1,18 @@
+
+#pageLayoutTable
+{
+    margin:auto;
+    width: 500px;
+    border: solid 1px green;
+    background-image: url("rbge_background.png");
+    background-repeat:no-repeat;
+    background-position:right;
+    background-color: #daf0ba;
+}
+
+#pageLayoutTable td
+{
+    
+    padding: 5px;
+    
+}
