@@ -37,7 +37,7 @@
          // Firstly we create a load of temporary tables to make the main query run efficiently        
         $sql = "
         
-            CREATE temporary table mobile.cs select SPECIMEN_NUM as specimen_num, PROJECT as project_code FROM image_archive.original_images as i JOIN bgbase_dump.specimens as b ON b.BARCODE = i.BARCODE WHERE replaced_by is null AND project = $project GROUP BY i.BARCODE;
+            CREATE temporary table mobile.cs select SPECIMEN_NUM as specimen_num, PROJECT as project_code FROM image_archive.original_images as i JOIN bgbase_dump.specimens as b ON b.BARCODE = i.BARCODE WHERE replaced_by is null AND PROJECT REGEXP '^[0-9]+$' AND project = $project GROUP BY i.BARCODE;
 
             CREATE temporary table mobile.mods select ups.specimen_num, max(rec_update) as last_modified from specimens_mv as ups join mobile.cs on cs.specimen_num = ups.specimen_num group by specimen_num;
 
