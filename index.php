@@ -485,6 +485,7 @@
 
                 $sql ="SELECT image_archive.original_images.PROJECT, count(*) as n
                 FROM image_archive.original_images
+				WHERE PROJECT REGEXP '^[0-9]+$'
                 GROUP BY PROJECT
                 ORDER BY PROJECT";
                 
