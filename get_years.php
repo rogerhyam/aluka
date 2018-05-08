@@ -3,10 +3,7 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     
-    $db_host = 'elmer.rbge.org.uk';
-    $db_database = 'bgbase_dump';
-    $db_user = 'Mobile';
-    $db_password = 'rh2508';
+	include('../aluka_config.php');
 
     $mysqli = new mysqli($db_host, $db_user, $db_password, $db_database);    
     // connect to the database
